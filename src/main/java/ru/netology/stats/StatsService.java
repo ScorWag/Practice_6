@@ -11,12 +11,7 @@ public class StatsService {
     }
 
     public long avgSales(int[] sales) {
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
-        long avg = sum / sales.length;
-        return avg;
+        return sumSales(sales) / sales.length;
     }
 
     public int minSales(int[] sales) {
@@ -42,11 +37,7 @@ public class StatsService {
     }
 
     public long countMonthUnderAvg(int[] sales) {
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
-        long avg = sum / sales.length;
+        long avg = avgSales(sales);
         int count = 0;
         for (int sale : sales) {
             if (sale < avg) {
@@ -57,11 +48,7 @@ public class StatsService {
     }
 
     public long countMonthOverAvg(int[] sales) {
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
-        long avg = sum / sales.length;
+        long avg = avgSales(sales);
         int count = 0;
         for (int sale : sales) {
             if (sale > avg) {
@@ -70,5 +57,4 @@ public class StatsService {
         }
         return count;
     }
-
 }
